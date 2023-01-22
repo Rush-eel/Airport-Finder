@@ -7,22 +7,28 @@ class ui_window(object):
         window.setWindowTitle("Airport Finder")
         window.setFixedWidth(700)
         window.setFixedHeight(400)
-        oTabWidget = QTabWidget(window)
-
-        oPage1 = QWidget()
-        oLabel1 = QLabel("hello", window)
-        oVbox1 = QVBoxLayout()
-        oVbox1.addWidget(oLabel1)
-        oPage1.setLayout(oVbox1)
-
-        oPage2 = QWidget()
-        oPage2.setGeometry(0, 0, 400, 400)
-
-        oTabWidget.addTab(oPage1, "Find")
-        oTabWidget.addTab(oPage2, "Saved")
-
-
-        window.show()
+        self.setup_tabs()
+    def setup_tabs(self):
+        self.centralWidget = QWidget(window)
+        self.centralWidget.setFixedWidth(700)
+        self.centralWidget.setFixedHeight(400)
+        self.tabWidget = QTabWidget(self.centralWidget)
+        self.tabWidget.setFixedWidth(700)
+        self.tabWidget.setFixedHeight(400)
+        self.findAirportsTab = QWidget()
+        self.tabWidget.addTab(self.findAirportsTab, "Find")
+        self.savedAirportsTab = QWidget()
+        self.tabWidget.addTab(self.savedAirportsTab, "Saved")
+        self.control_airport_tab()
+    def control_airport_tab(self):
+        self.descLabel = QLabel(self.findAirportsTab)
+        self.descLabel.setText("Airport Description:")
+        self.descLabel.move(350, 60)
+        self.descLabel.setStyleSheet("font-size: 20pt")
+        self.titleLabel = QLabel(self.findAirportsTab)
+        self.titleLabel.setText("Salt Lake City International Airport")
+        self.titleLabel.move(180, 0)
+        self.titleLabel.setStyleSheet("font-weight: bold; font-size: 22pt")
 
 
 
