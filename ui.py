@@ -1,6 +1,7 @@
 from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QTabWidget, QGridLayout, QLabel, QWidget, QVBoxLayout
-
+from PyQt5.QtWidgets import QTabWidget, QGridLayout, QLabel, QWidget, QVBoxLayout, QPushButton
+from PyQt5.QtCore import pyqtSlot
+from PyQt5.QtGui import *
 
 class ui_window(object):
     def setup_window(self, window):
@@ -33,6 +34,22 @@ class ui_window(object):
         self.descLabel.setText(" Salt Lake City International Airport is a civil-military airport \n located about 4 miles west of Downtown Salt Lake City,  \n Utah, in the United States. The airport is the closest\n commercial airport for more than 2.5 million people and is\n within a 30-minute drive of nearly 1.3 million jobs.")
         self.descLabel.move(260, 100)
         self.descLabel.setStyleSheet("font-size: 13.5pt")
+        self.all_buttons()
+    def all_buttons(self):
+        self.webButton = QPushButton(self.findAirportsTab)
+        self.webButton.setText("Open Website")
+        self.webButton.move(260, 200)
+        self.webButton.show
+        self.saveButton = QPushButton(self.findAirportsTab)
+        self.saveButton.setText("Save")
+        self.saveButton.move(260, 250)
+        self.saveButton.show
+        self.nextButton = QPushButton(self.findAirportsTab)
+        self.nextButton.setText("Next")
+        self.nextButton.move(580, 250)
+        self.nextButton.show
+
+
 
 
 
