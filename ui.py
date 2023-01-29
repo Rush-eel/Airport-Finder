@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QTabWidget, QGridLayout, QLabel, QWidget, QVBoxLayou
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtGui import *
 
+
 class ui_window(object):
     def setup_window(self, window):
         window.setWindowTitle("Airport Finder")
@@ -39,15 +40,28 @@ class ui_window(object):
         self.webButton = QPushButton(self.findAirportsTab)
         self.webButton.setText("Open Website")
         self.webButton.move(260, 200)
-        self.webButton.show
         self.saveButton = QPushButton(self.findAirportsTab)
         self.saveButton.setText("Save")
-        self.saveButton.move(260, 250)
-        self.saveButton.show
+        self.saveButton.move(260, 230)
         self.nextButton = QPushButton(self.findAirportsTab)
         self.nextButton.setText("Next")
-        self.nextButton.move(580, 250)
-        self.nextButton.show
+        self.nextButton.move(580, 260)
+        self.backButton = QPushButton(self.findAirportsTab)
+        self.backButton.setText("Back")
+        self.backButton.move(260, 260)
+        self.show_img()
+
+    def show_img(self):
+        label = QLabel(self.findAirportsTab)
+        pixmap = QPixmap('./App-Pics/SLC.jpeg')
+        label.setPixmap(pixmap)
+        label.setScaledContents(True)
+        label.setFixedWidth(225)
+        label.setFixedHeight(137)
+
+
+
+
 
 
 
