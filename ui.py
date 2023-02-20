@@ -2,6 +2,8 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QTabWidget, QGridLayout, QLabel, QWidget, QVBoxLayout, QPushButton
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtGui import *
+from PyQt5.QtCore import QUrl
+
 
 
 class ui_window(object):
@@ -38,8 +40,9 @@ class ui_window(object):
         self.all_buttons()
     def all_buttons(self):
         self.webButton = QPushButton(self.findAirportsTab)
-        self.webButton.setText("Open Website")
+        self.webButton.setText("Website ↗")
         self.webButton.move(597, 350)
+        self.webButton.clicked.connect(self.open_link)
         self.saveButton = QPushButton(self.findAirportsTab)
         self.saveButton.setText("Save")
         self.saveButton.move(597, 380)
@@ -51,6 +54,9 @@ class ui_window(object):
         self.backButton.move(597, 410)
         self.show_img()
 
+    def open_link(self):
+        url = QUrl("https://slcairport.com")
+        QDesktopServices.openUrl(url)
     def show_img(self):
         labelOne = QLabel(self.findAirportsTab)
         pixmapOne = QPixmap('./App-Pics/SLCINT1')
